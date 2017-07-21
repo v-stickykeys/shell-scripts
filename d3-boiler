@@ -1,0 +1,24 @@
+#!/bin/bash
+
+echo "Enter the absolute path destination for your new directory:"
+read destination
+cd $destination
+
+echo "Enter a name for your new directory:"
+read dirname
+
+if [ ! -d "$dirname" ]
+then
+    echo "Creating directory $dirname ..."
+    mkdir -p -- "$dirname"
+    echo "Creating boilerplates within $dirname ..."
+    touch $dirname/index.html
+    echo "<!-- Denay Mack -->" >> $dirname/index.html
+    touch $dirname/script.js
+    echo "//** Denay Mack **//" >> $dirname/script.js
+    touch $dirname/style.css
+    echo "/** Denay Mack **/" >> $dirname/style.css
+    echo "Complete. Happy coding :)"
+else
+    echo "Directory exists already. Try again with a different directory name."
+fi
